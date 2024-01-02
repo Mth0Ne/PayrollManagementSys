@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="BouncyCastle.NetCore" Version="2.2.1" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+
+	  <PackageReference Include="itext7" Version="8.0.2" />
+
+	  <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1004" />
+	  <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="24.1.43" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PayrollManagementSys.Data\PayrollManagementSys.Data.csproj" />
+    <ProjectReference Include="..\PayrollManagementSys.Entity\PayrollManagementSys.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

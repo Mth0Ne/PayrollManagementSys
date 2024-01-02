@@ -1,0 +1,135 @@
+﻿@model EmployeeAddDto
+<title>Payroll Management</title>
+
+<h1>Kullanıcı Ekleme</h1>
+<div b-4cazk3bw56 class="card" style="padding:10px;">
+    <form asp-controller="Employee" asp-action="EmployeeAdd" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly"></div>
+
+
+
+        <div class="form-group">
+            <label>Depertman</label>
+            <select id="departmanList" class="form-control" asp-for="DepertmanId" asp-items="@(new SelectList(Model.Departmans,"Id","Name"))"></select>
+        </div>
+        <div class="form-group">
+
+            <label asp-for="FirstName" id="defaultFormControlInput" class="form-label">Adı</label>
+            <input asp-for="FirstName" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Adı" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+
+            <label asp-for="LastName" id="defaultFormControlInput" class="form-label">Soyadı</label>
+            <input asp-for="LastName" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Adı" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+
+            <label asp-for="Gender" id="defaultFormControlInput" class="form-label">Cinsiyet</label>
+            <input asp-for="Gender" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Cinsiyeti" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="Gender" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="BirtDate" id="defaultFormControlInput" class="form-label"> Doğum Tarihi</label>
+            <input asp-for="BirtDate" type="date" class="form-control mb-3" id="defaultFormControlInput" placeholder="Doğum Tarihi" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="BirtDate" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+
+            <label asp-for="Addres" id="defaultFormControlInput" class="form-label">Adres</label>
+            <input asp-for="Addres" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Adres" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="Addres" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" id="defaultFormControlInput" class="form-label"> Email Adresi</label>
+            <input asp-for="Email" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Email" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber" id="defaultFormControlInput" class="form-label"> Telefon Numarası</label>
+            <input asp-for="PhoneNumber" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Telefon" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="SGKNumara" id="defaultFormControlInput" class="form-label"> SGK Numara</label>
+            <input asp-for="SGKNumara" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="SGK Numarası" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="SGKNumara" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="UserName" id="defaultFormControlInput" class="form-label"> Kullancı Adı</label>
+            <input asp-for="UserName" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Kullanıcı Adı" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+
+        </div>
+        <a class="btn text-primary float-end" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+            Role Ekle
+            <i class="bx bx-plus"></i>
+        </a>
+        <div class="form-group">
+            <label>Rol</label>
+            <select id="roleList" class="form-control" asp-for="RoleId" asp-items="@(new SelectList(Model.Roles,"Id","Name"))"></select>
+        </div>
+        <div class="form-group" id="container">
+            <label asp-for="PasswordHash" id="defaultFormControlInput" class="form-label"> Şifre</label>
+            <input asp-for="PasswordHash" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Şifre" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="PasswordHash" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-primary"> Kaydet </button>
+        </div>
+    </form>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Rol Ekle</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label class="d-block form-label"> Rol Adı</label>
+                        <input style="border:1px solid black;" type="text" class="form-control" id="roleName" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <button type="button" data-keyboard="false" id="btnSave" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+
+    <script src="¨~/js/roleAdd.js"></script>
+    <script>
+        var app = app || {};
+        app Urls = app.Urls || {};
+
+        app.Urls.baseUrl = '@Url.Content("~")';
+        app.Urls.roleAddUrl = '@(Url.Action("AddWithAjax", "Role"))'
+        app.Urls.employeeAddUrl = "@(Url.Action("EmployeeAdd", "Employee"))"
+    </script>
+        
+
+
+}

@@ -1,0 +1,26 @@
+﻿@model DepartmanDto
+@{
+    ViewData["Title"] = "DepartmanAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Payroll Management</title>
+
+<h1>Departman Ekleme</h1>
+
+<div b-4cazk3bw56 class="card" style="padding:10px;">
+    <form asp-controller="Deparman" asp-action="DepartmanUpdate" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" asp-for="Id"/>
+        <div class="form-group">
+
+            <label asp-for="Name" id="defaultFormControlInput" class="form-label">Departman Adı</label>
+            <input asp-for="Name" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Departman Adı" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="Name" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-primary"> Kaydet </button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,73 @@
+﻿@model List<EmployeeDto>
+@{
+    ViewData["Title"] = "EmployeSalary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<title>Payroll Management</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+
+
+
+
+
+<form asp-action="EmployeSalaryPost" method="post">
+    <div b-4cazk3bw56 class="card" style="padding:5px;">
+        <table id="employeesTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>E-Mail</th>
+                    <th>Cinsiyet</th>
+                    <th>Başlangıç Tarihi</th>
+                    <th>Departman</th>
+                    <th>Maaş İşlem</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Gender</td>
+                        <td>@item.StartedDate</td>
+                        <td>@item.Departman.Name</td>
+
+                        <td>
+                            <a style="color:white;" class="btn btn-warning" data-id="@item.Id" asp-controller="Salary" asp-action="SalaryEdit" asp-route-employeeId="@item.Id"><i class="fa-solid fa-dollar-sign"></i>Maaş İşlemleri</a>
+                        </td>
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+    <button type="submit" class="btn btn-outline-primary"><i class="fas fa-wallet"></i> Maaş Yatır</button>
+</form>
+
+
+@section Scripts{
+    <script src="~/js/employeeIndex.js" type="application/ecmascript"></script>
+}
+
+
+
+
+

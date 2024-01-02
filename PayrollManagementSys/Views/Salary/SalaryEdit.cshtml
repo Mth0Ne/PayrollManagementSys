@@ -1,0 +1,112 @@
+﻿@model WorkDaySalaryViewModel
+@{
+    ViewData["Title"] = "SalaryEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Çalışma Günü Ekleme</h1>
+
+<title>Payroll Management</title>
+
+<form asp-controller="Salary" asp-action="SalaryEdit" method="post" enctype="multipart/form-data">
+    <div b-4cazk3bw56 class="card" style="padding:10px;">
+
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <input type="text" asp-for="WorkDay.PersonelId" />
+        <div class="form-group">
+            <label asp-for="WorkDay.WorkDate" id="defaultFormControlInput" class="form-label">Tarih</label>
+            <input asp-for="WorkDay.WorkDate" type="date" class="form-control mb-3" id="defaultFormControlInput" placeholder="Tarih" aria-describedby="defaultFormControlHelp">
+            @*<span asp-validation-for="WorkDate" class="text-danger"></span>
+            *@
+        </div>
+        <div class="form-group">
+            <label asp-for="WorkDay.WorkTime" id="defaultFormControlInput" class="form-label">Çalışma Zaman</label>
+            <input asp-for="WorkDay.WorkTime" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Çalışma Zaman" aria-describedby="defaultFormControlHelp">
+            @*   <span asp-validation-for="WorkTime" class="text-danger"></span>*@
+
+        </div>
+
+        
+
+    </div>
+
+    <div b-4cazk3bw56 class="card" style="padding:10px;">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <input type="hidden" asp-for="Salary.PersonelId" />
+        <div class="form-group">
+            <label asp-for="Salary.SalaryCoefficient" id="defaultFormControlInput" class="form-label">Maaş Katsayı</label>
+            <input asp-for="Salary.SalaryCoefficient" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Maaş Katsayı" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="Salary.SalaryCoefficient" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Salary.SalaryDate" id="defaultFormControlInput" class="form-label">Tarih</label>
+            <input asp-for="Salary.SalaryDate" type="date" class="form-control mb-3" id="defaultFormControlInput" placeholder="Tarih" aria-describedby="defaultFormControlHelp">
+            @*<span asp-validation-for="WorkDate" class="text-danger"></span>
+            *@
+        </div>
+        <div class="form-group">
+            <label asp-for="Salary.TaxDeduction" id="defaultFormControlInput" class="form-label">Vergi Kesintisi</label>
+            <input asp-for="Salary.TaxDeduction" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="Vergi Kesintisi" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="Salary.TaxDeduction" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Salary.SgkDeduction" id="defaultFormControlInput" class="form-label">SGK Kesintisi</label>
+            <input asp-for="Salary.SgkDeduction" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="SGK Kesintisi" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="Salary.SgkDeduction" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Salary.AdditionalPayments" id="defaultFormControlInput" class="form-label">Ek Ödemeler</label>
+            <input asp-for="Salary.AdditionalPayments" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="SGK Kesintisi" aria-describedby="defaultFormControlHelp">
+            <span asp-validation-for="Salary.AdditionalPayments" class="text-danger"></span>
+
+        </div>
+
+
+    </div>
+
+   
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-primary"> Kaydet </button>
+    </div>
+</form>
+    
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        $(document).ready(function () {
+            // Check for success message in TempData and show SweetAlert
+            var errorMessage = '@TempData["Error"]';
+            if (errorMessage) {
+                Swal.fire({
+                    title: 'Hata!',
+                    text: errorMessage,
+                    icon: 'error',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+
+        $(document).ready(function () {
+            // Check for success message in TempData and show SweetAlert
+            var errorMessageSalary = '@TempData["ErrorSalary"]';
+            if (errorMessageSalary) {
+                Swal.fire({
+                    title: 'Hata!',
+                    text: errorMessageSalary,
+                    icon: 'error',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    </script>
+}
+
+ 
+
